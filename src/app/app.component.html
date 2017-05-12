@@ -2,3 +2,6 @@
   Bücher!
 </h1>
 <p i18n="@@Appcomponent:welcome-message">Willkommen</p>
+
+<app-book-grid [books]="books" *ngIf="griddIsEnabled; else bookList"></app-book-grid>
+<app-book-list [books]="books" #bookList></app-book-list>

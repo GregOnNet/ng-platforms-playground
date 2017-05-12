@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  books = [
+    { title: 'Angular', authors: 'Gregor Woiwode' },
+    { title: 'Angular', authors: 'Gregor Woiwode' },
+    { title: 'Angular', authors: 'Gregor Woiwode' }
+  ];
 }
