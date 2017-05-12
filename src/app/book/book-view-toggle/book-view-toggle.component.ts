@@ -3,8 +3,8 @@ import { ViewMode } from './view-mode';
 
 @Component({
   selector: 'tr-view-toggle',
-  templateUrl: './view-toggle.component.html',
-  styleUrls: ['./view-toggle.component.sass']
+  templateUrl: './book-view-toggle.component.html',
+  styleUrls: ['./book-view-toggle.component.sass']
 })
 export class ViewToggleComponent implements OnInit {
 

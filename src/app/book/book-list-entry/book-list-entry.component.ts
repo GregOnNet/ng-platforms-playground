@@ -1,4 +1,4 @@
-import { BookCardComponent } from '../book-card/book-card.component';
+import { BookCardComponent } from '../book-grid-element/book-grid-element.component';
 import { Component, Input } from '@angular/core';
 
 @Component({

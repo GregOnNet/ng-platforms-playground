@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewMode } from './view-toggle/view-mode';
+import { ViewMode } from './book/book-view-toggle/view-mode';
 
 @Component({
   selector: 'tr-root',
