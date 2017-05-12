@@ -1,0 +1,14 @@
+<div class="btn-group">
+  <div
+    (click)="propagate(viewMode.Grid)"
+    class="radio btn">
+    <input type="radio" name="radio-view-mode" id="btn-view-mode-grid" checked>
+    <label for="btn-view-mode-grid">Kachelansicht</label>
+  </div>
+  <div
+    (click)="propagate(viewMode.List)"
+    class="radio btn">
+    <input type="radio" name="radio-view-mode" id="btn-view-mode-list">
+    <label for="btn-view-mode-list">Listenansicht</label>
+  </div>
+</div>

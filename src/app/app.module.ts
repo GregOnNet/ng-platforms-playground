@@ -8,6 +8,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookGridComponent } from './book-grid/book-grid.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { ListEntryComponent } from './list-entry/list-entry.component';
+import { ViewToggleComponent } from './view-toggle/view-toggle.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ListEntryComponent } from './list-entry/list-entry.component';
     BookCardComponent,
     BookGridComponent,
     BookListComponent,
-    ListEntryComponent
+    ListEntryComponent,
+    ViewToggleComponent
   ],
   imports: [
     BrowserModule,
