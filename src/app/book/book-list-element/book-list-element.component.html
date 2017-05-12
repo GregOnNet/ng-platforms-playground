@@ -1,0 +1,25 @@
+<div class="book-list-element">
+  <div class="thumbnail">
+    <img src="https://dummyimage.com/150x120/333/fff&text=Buch" alt="Buch Cover">
+  </div>
+  <div class="content">
+    <div class="title">{{ book.title }} </div>
+    <div class="authors">{{ book.authors }}</div>
+    <div class="price">{{ book.price }}</div>
+    <div class="actions">
+      <button counter-button
+              [count]="book.likes"
+              (click.once)="book.like()"
+              class="btn btn-default">
+        Like
+      </button>
+
+      <button counter-button
+              [count]="book.dislikes"
+              (click.once)="book.dislike()"
+              class="btn btn-default">
+        Dislike
+      </button>
+    </div>
+  </div>
+</div>
