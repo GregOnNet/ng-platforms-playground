@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-book-card',
+  selector: 'tr-book-card',
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.sass']
 })

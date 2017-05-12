@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-book-grid',
+  selector: 'tr-book-grid',
   templateUrl: './book-grid.component.html',
   styleUrls: ['./book-grid.component.sass']
 })

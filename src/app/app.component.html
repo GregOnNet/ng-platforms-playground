@@ -3,5 +3,12 @@
 </h1>
 <p i18n="@@Appcomponent:welcome-message">Willkommen</p>
 
-<app-book-grid [books]="books" *ngIf="griddIsEnabled; else bookList"></app-book-grid>
-<app-book-list [books]="books" #bookList></app-book-list>
+<div class="container">
+  <tr-view-toggle (changed)="setViewMode($event)"></tr-view-toggle>
+
+  <tr-book-grid [books]="books" *ngIf="isGridEnabled; else bookList"></tr-book-grid>
+
+  <ng-template #bookList>
+    <tr-book-list [books]="books"></tr-book-list>
+  </ng-template>
+</div>

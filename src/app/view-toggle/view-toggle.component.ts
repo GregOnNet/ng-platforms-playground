@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ViewMode } from './view-mode';
 
 @Component({
-  selector: 'app-view-toggle',
+  selector: 'tr-view-toggle',
   templateUrl: './view-toggle.component.html',
   styleUrls: ['./view-toggle.component.sass']
 })

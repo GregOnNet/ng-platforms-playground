@@ -6,6 +6,6 @@ export class NgTrainingPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('tr-root h1')).getText();
   }
 }
