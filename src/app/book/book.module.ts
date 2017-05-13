@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { UtilitiesModule } from './../utilities/utilities.module';
 
@@ -11,13 +12,16 @@ import { ListEntryComponent } from './book-list-element/book-list-element.compon
 import { ViewToggleComponent } from './book-view-toggle/book-view-toggle.component';
 import { RatingButtonComponent } from './rating-button/rating-button.component';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
+import { BookTopNavigationComponent } from './book-top-navigation/book-top-navigation.component';
 
 import { BookService } from './core/book.service';
+import { GoogleBooksService } from './core/google-books.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    HttpModule,
     UtilitiesModule
   ],
   declarations: [
@@ -27,14 +31,16 @@ import { BookService } from './core/book.service';
     ListEntryComponent,
     ViewToggleComponent,
     RatingButtonComponent,
-    BookAddFormComponent
+    BookAddFormComponent,
+    BookTopNavigationComponent
   ],
   exports: [
     BookGridComponent,
     BookListComponent,
     ViewToggleComponent,
-    BookAddFormComponent
+    BookAddFormComponent,
+    BookTopNavigationComponent
   ],
-  providers: [BookService]
+  providers: [BookService, GoogleBooksService]
 })
 export class BookModule { }

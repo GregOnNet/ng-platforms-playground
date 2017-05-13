@@ -1,5 +1,5 @@
 export class Book {
-  thumbnails: string;
+  thumbnails: string[];
   description: string;
   rating = 0;
 

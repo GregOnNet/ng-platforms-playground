@@ -8,6 +8,4 @@ import { Book } from '../models/book';
 })
 export class BookGridElementComponent {
   @Input() book: Book;
-
-  canDerive() { console.log('Yes'); }
 }
