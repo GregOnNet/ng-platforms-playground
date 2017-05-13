@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="branding">
+    <a href="">
+      <span class="title">Bücher</span>
+    </a>
+  </div>
+  <form class="search">
+    <label>
+      <input type="text" placeholder="Bücher suchen...">
+    </label>
+  </form>
+  <div class="search-results">
+    <tr-book-grid [books]="books | async"></tr-book-grid>
+  </div>
+</header>
