@@ -12,6 +12,7 @@ import { ViewToggleComponent } from './book-view-toggle/book-view-toggle.compone
 import { RatingButtonComponent } from './rating-button/rating-button.component';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 
+import { BookService } from './core/book.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { BookAddFormComponent } from './book-add-form/book-add-form.component';
     BookListComponent,
     ViewToggleComponent,
     BookAddFormComponent
-  ]
+  ],
+  providers: [BookService]
 })
 export class BookModule { }
