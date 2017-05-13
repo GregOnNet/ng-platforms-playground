@@ -4,6 +4,7 @@ import { ViewMode } from './book/book-view-toggle/view-mode';
 import { Book } from './book/models/book';
 
 import { BookService } from './book/core/book.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'tr-root',
@@ -13,12 +14,13 @@ import { BookService } from './book/core/book.service';
 export class AppComponent implements OnInit {
   title = 'app works!';
   isGridEnabled = true;
-  books: Book[];
+  books: Observable<Book[]>;
 
   constructor(private bookService: BookService) { }
 
   addBookToList(book: Book) {
-    this.books.unshift(book);
+    this.bookService.create(book);
+    this.books = this.bookService.getAll();
   }
 
   setViewMode(viewMode: ViewMode) {
