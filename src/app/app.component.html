@@ -4,6 +4,11 @@
 <p i18n="@@Appcomponent:welcome-message">Willkommen</p>
 
 <div class="container">
+
+  <tr-book-add-form (create)="addBookToList($event)"></tr-book-add-form>
+
+  <hr>
+
   <tr-view-toggle (changed)="setViewMode($event)"></tr-view-toggle>
 
   <tr-book-grid [books]="books" *ngIf="isGridEnabled; else bookList"></tr-book-grid>

@@ -14,10 +14,14 @@ export class AppComponent {
   isGridEnabled = true;
 
   books = [
-    new Book('Angular', 'Gregor Woiwode', 20),
-    new Book('Angular', 'Gregor Woiwode', 30),
-    new Book('Angular', 'Gregor Woiwode', 14.95),
+    new Book('Angular', ['Gregor Woiwode'], 20),
+    new Book('Angular', ['Gregor Woiwode'], 30),
+    new Book('Angular', ['Gregor Woiwode'], 14.95),
   ];
+
+  addBookToList(book: Book) {
+    this.books.unshift(book);
+  }
 
   setViewMode(viewMode: ViewMode) {
     viewMode === ViewMode.Grid

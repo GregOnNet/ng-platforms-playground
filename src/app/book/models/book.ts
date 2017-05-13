@@ -5,7 +5,7 @@ export class Book {
 
   constructor(
     public title: string,
-    public authors: string,
+    public authors: string[],
     public price: number
   ) {}
 

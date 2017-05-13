@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="title">{{ book.title }} </div>
-      <div class="authors">{{ book.authors }}</div>
+      <div class="authors">{{ book.authors[0] }}</div>
       <div class="price">{{ book.price | currency:'EUR':true }}</div>
       <div [hidden]="book.rating === 0" class="rating" >{{ book.rating }}</div>
     </div>
