@@ -17,7 +17,7 @@ export class GoogleBooksService {
       .map(result => result.items.map(b => {
         const book = new Book(b.volumeInfo.title, b.volumeInfo.authors, b.saleInfo.listPrice ? b.saleInfo.amount : null);
 
-        book.thumbnails = [b.volumeInfo.imageLinks.thumbnail];
+        book.thumbnails = b.volumeInfo.imageLinks ? [b.volumeInfo.imageLinks.thumbnail] : null;
         book.rating = b.volumeInfo.averageRating ? b.volumeInfo.averageRating : 0;
 
         return book;

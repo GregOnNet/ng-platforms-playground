@@ -1,22 +1,41 @@
-import { Observable } from 'rxjs/Observable';
 import { GoogleBooksService } from './../core/google-books.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { Book } from '../models/book';
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/empty';
 
 @Component({
   selector: 'tr-book-top-navigation',
   templateUrl: './book-top-navigation.component.html',
   styleUrls: ['./book-top-navigation.component.sass']
 })
-export class BookTopNavigationComponent implements OnInit {
+export class BookTopNavigationComponent {
+  searchError: string;
 
-  books: Observable<Book[]>;
+  isResultViewEnabled = false;
 
-  constructor(private googleBooks: GoogleBooksService) { }
+  books$: Observable<Book[]>;
 
-  ngOnInit() {
-    this.books = this.googleBooks.search('harry potter');
+  queryChange = new EventEmitter<string>();
+
+  constructor(private googleBooks: GoogleBooksService) {
+     this.books$ = this.queryChange
+      .debounceTime(500)
+      .distinctUntilChanged()
+      // .filter(query => query && query.length > 0)
+      .do(() => this.isResultViewEnabled = true)
+      .switchMap(query => this.googleBooks.search(query))
+      .catch(err => {
+        this.searchError = err.json().error.message;
+        return Observable.empty();
+      });
   }
-
 }

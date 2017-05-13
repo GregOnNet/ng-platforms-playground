@@ -6,10 +6,31 @@
   </div>
   <form class="search">
     <label>
-      <input type="text" placeholder="Bücher suchen...">
+      <input
+        (input)="queryChange.emit(searchQuery.value)"
+        type="text"
+        #searchQuery
+        placeholder="Bücher suchen...">
     </label>
   </form>
-  <div class="search-results">
-    <tr-book-grid [books]="books | async"></tr-book-grid>
+  <div [hidden]="!isResultViewEnabled" class="search-results">
+    <div class="container">
+      <button
+        (click)="isResultViewEnabled = false"
+        class="btn btn-link btn-sm">Schließen
+      </button>
+      <div
+        *ngIf="searchError"
+        class="alert alert-danger">
+        <div class="alert-item">
+          <span class="alert-text">{{ searchError }}</span>
+        </div>
+      </div>
+      <tr-book-grid
+        *ngIf="books$ | async as books; else searchResults;"
+        [books]="books">
+      </tr-book-grid>
+      <ng-template #searchResults><div class="spinner"></div></ng-template>
+    </div>
   </div>
 </header>
