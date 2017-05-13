@@ -1,23 +1,27 @@
+import { UtilitiesModule } from './../utilities/utilities.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BookGridComponent } from './book-grid/book-grid.component';
-import { BookCardComponent } from './book-grid-element/book-grid-element.component';
+import { BookGridElementComponent } from './book-grid-element/book-grid-element.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { ListEntryComponent } from './book-list-entry/book-list-entry.component';
+import { ListEntryComponent } from './book-list-element/book-list-element.component';
 import { ViewToggleComponent } from './book-view-toggle/book-view-toggle.component';
+import { RatingButtonComponent } from './rating-button/rating-button.component';
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    UtilitiesModule
   ],
   declarations: [
     BookGridComponent,
-    BookCardComponent,
+    BookGridElementComponent,
     BookListComponent,
     ListEntryComponent,
-    ViewToggleComponent
+    ViewToggleComponent,
+    RatingButtonComponent
   ],
   exports: [
     BookGridComponent,

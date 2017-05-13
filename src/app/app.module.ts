@@ -19,6 +19,6 @@ import { AppComponent } from './app.component';
     BookModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

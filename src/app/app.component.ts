@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { ViewMode } from './book/book-view-toggle/view-mode';
+import { Book } from './book/models/book';
 
 @Component({
   selector: 'tr-root',
@@ -12,9 +14,9 @@ export class AppComponent {
   isGridEnabled = true;
 
   books = [
-    { title: 'Angular', authors: 'Gregor Woiwode' },
-    { title: 'Angular', authors: 'Gregor Woiwode' },
-    { title: 'Angular', authors: 'Gregor Woiwode' }
+    new Book('Angular', 'Gregor Woiwode', 20),
+    new Book('Angular', 'Gregor Woiwode', 30),
+    new Book('Angular', 'Gregor Woiwode', 14.95),
   ];
 
   setViewMode(viewMode: ViewMode) {

@@ -1,15 +1,27 @@
 <div class="book-card">
-  <div class="thumbnail">
-    <img src="https://dummyimage.com/180x250/333/fff&text=Buch"
-         alt="Buchcover">
-  </div>
-  <div class="title">
-    {{ book.title }}
-  </div>
-  <div class="authors">
-    {{ book.authors }}
-  </div>
-  <div class="price">
-    20 €
+  <a href="">
+    <div class="thumbnail">
+      <img src="https://dummyimage.com/180x250/333/fff&text=Buch"
+           alt="Buchcover">
+    </div>
+    <div class="title">
+      {{ book.title }}
+    </div>
+    <div class="authors">
+      {{ book.authors }}
+    </div>
+    <div class="price">
+      {{ book.price | currency:'EUR':true }}
+    </div>
+    <div [hidden]="book.rating === 0" class="rating">
+      {{ book.rating }}
+    </div>
+  </a>
+  <div class="actions">
+    <tr-rating-button
+      [rating]="book.rating"
+      (increase)="book.rateUp()"
+      (decrease)="book.rateDown()">
+    </tr-rating-button>
   </div>
 </div>
