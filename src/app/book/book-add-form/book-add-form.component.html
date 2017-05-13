@@ -4,32 +4,68 @@
   </section>
   <div class="form-group">
     <label for="book-add-title">Titel</label>
-    <input
-      [(ngModel)]="book.title"
-      type="text"
-      id="book-add-title"
-      name="title"
-      class="form-control"
-      #title>
+    <label
+      [class.invalid]="title.invalid && (title.dirty || title.touched)"
+      for="book-add-title"
+      class="tooltip tooltip-validation tooltip-top-left tooltip-md"
+      aria-haspopup="true"
+      role="tooltip">
+      <input
+        [(ngModel)]="book.title"
+        required
+        type="text"
+        id="book-add-title"
+        name="title"
+        class="form-control"
+        #title="ngModel">
+      <span class="tooltip-content">
+        Bitte geben Sie einen Titel ein.
+      </span>
+    </label>
   </div>
   <div class="form-group">
     <label for="book-add-authors">Autoren</label>
-    <input
-      [(ngModel)]="book.authors"
-      type="text"
-      id="book-add-authors"
-      name="authors"
-      class="form-control"
-      #authors>
+    <label
+      [class.invalid]="authors.invalid && (authors.dirty || authors.touched)"
+      for="book-add-authors"
+      class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+      <input
+        [ngModel]="book.authors"
+        (ngModelChange)="updateAuthors(authors)"
+        #authors="ngModel"
+        required
+        type="text"
+        id="book-add-authors"
+        name="authors"
+        class="form-control">
+      <span class="tooltip-content">
+        Bitte ergänzen Sie einen oder mehrere Autoren getrennt durch ein Komma.
+      </span>
+    </label>
+
   </div>
   <div class="form-group">
     <label for="book-add-price">Preis</label>
-    <input
-      [(ngModel)]="book.price"
-      type="text"
-      id="book-add-price"
-      name="price"
-      class="form-control" #price>
+    <label
+      [class.invalid]="price.invalid && (price.dirty || price.touched)"
+      for="book-add-price"
+      class="tooltip tooltip-validation tooltip-top-left tooltip-md"
+      aria-hasPopup="true"
+      role="tooltip">
+      <input
+        [(ngModel)]="book.price"
+        required
+        pattern="\d+(\.\d{1,2})?"
+        type="text"
+        id="book-add-price"
+        name="price"
+        class="form-control"
+        #price="ngModel">
+      <span class="tooltip-content">
+        <span [hidden]="!price.errors || !price.errors.pattern">Bitte geben Sie einen gültigen Preis ein (Bsp.: 15.00€).</span>
+        <span [hidden]="!price.errors || !price.errors.required">Die Eingabe eines Preises ist erforderlich.</span>
+      </span>
+    </label>
   </div>
   <div class="form-group">
     <label for="book-add-description">Beschreibung</label>
@@ -43,10 +79,9 @@
     </textarea>
   </div>
   <button
+    [disabled]="bookForm.invalid"
     type="submit"
     class="btn btn-primary">
     Buch anlegen
   </button>
 </form>
-
-{{ book | json}}

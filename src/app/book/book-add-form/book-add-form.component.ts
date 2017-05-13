@@ -17,4 +17,8 @@ export class BookAddFormComponent {
     this.create.emit(this.book);
     this.book = new Book('', [], 0);
   }
+
+  updateAuthors(authors: FormControl) {
+    this.book.authors = authors.value.split(',');
+  }
 }
