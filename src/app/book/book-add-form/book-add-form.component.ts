@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 
 import { Book } from '../models/book';
 
@@ -13,9 +13,9 @@ export class BookAddFormComponent {
 
   book = new Book('', [], 0);
 
-  createNewBook() {
-    this.create.emit(this.book);
-    this.book = new Book('', [], 0);
+  createNewBook(form: NgForm) {
+    this.create.emit(Object.assign({}, this.book));
+    form.reset();
   }
 
   updateAuthors(authors: FormControl) {

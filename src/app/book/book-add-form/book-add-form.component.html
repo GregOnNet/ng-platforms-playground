@@ -1,4 +1,4 @@
-<form #bookForm="ngForm" (ngSubmit)="createNewBook()">
+<form #bookForm="ngForm" (ngSubmit)="createNewBook(bookForm)">
   <section class="form-block">
     Neues Buch hinzufügen
   </section>
@@ -31,8 +31,9 @@
       class="tooltip tooltip-validation tooltip-top-left tooltip-md">
       <input
         [ngModel]="book.authors"
-        (ngModelChange)="updateAuthors(authors)"
+        (ngModelChange)="updateAuthors(authorsControl)"
         #authors="ngModel"
+        #authorsControl
         required
         type="text"
         id="book-add-authors"
