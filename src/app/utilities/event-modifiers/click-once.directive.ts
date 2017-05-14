@@ -1,4 +1,4 @@
-import { Directive, Output, EventEmitter, Renderer2, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Directive, Output, EventEmitter, Renderer2, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
