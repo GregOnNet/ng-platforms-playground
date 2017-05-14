@@ -1,7 +1,11 @@
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+import 'rxjs/add/observable/throw';
 
 import { Book } from '../models/book';
 
@@ -21,6 +25,9 @@ export class GoogleBooksService {
         book.rating = b.volumeInfo.averageRating ? b.volumeInfo.averageRating : 0;
 
         return book;
-      }));
+      }))
+      .catch(err => {
+        return Observable.throw(new Error(err.json().error.message));
+      });
   }
 }

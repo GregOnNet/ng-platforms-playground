@@ -10,7 +10,6 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/empty';
 
 @Component({
   selector: 'tr-book-top-navigation',
@@ -19,23 +18,21 @@ import 'rxjs/add/observable/empty';
 })
 export class BookTopNavigationComponent {
   searchError: string;
-
   isResultViewEnabled = false;
 
   books$: Observable<Book[]>;
-
   queryChange = new EventEmitter<string>();
 
   constructor(private googleBooks: GoogleBooksService) {
-     this.books$ = this.queryChange
+    this.books$ = this.queryChange
       .debounceTime(500)
       .distinctUntilChanged()
-      // .filter(query => query && query.length > 0)
+      .filter(query => query && query.length > 0)
       .do(() => this.isResultViewEnabled = true)
       .switchMap(query => this.googleBooks.search(query))
       .catch(err => {
-        this.searchError = err.json().error.message;
-        return Observable.empty();
+        this.searchError = err.message;
+        return Observable.of([]);
       });
   }
 }
