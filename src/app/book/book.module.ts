@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { BookRoutingModule } from './book.routing.module';
 import { UtilitiesModule } from './../utilities/utilities.module';
 
 import { BookGridComponent } from './book-grid/book-grid.component';
@@ -13,15 +14,20 @@ import { ViewToggleComponent } from './book-view-toggle/book-view-toggle.compone
 import { RatingButtonComponent } from './rating-button/rating-button.component';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
 import { BookTopNavigationComponent } from './book-top-navigation/book-top-navigation.component';
+import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
+
 
 import { BookService } from './core/book.service';
 import { GoogleBooksService } from './core/google-books.service';
+import { IsbnPipe } from './core/isbn-pipe/isbn.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpModule,
+
+    BookRoutingModule,
     UtilitiesModule
   ],
   declarations: [
@@ -32,7 +38,9 @@ import { GoogleBooksService } from './core/google-books.service';
     ViewToggleComponent,
     RatingButtonComponent,
     BookAddFormComponent,
-    BookTopNavigationComponent
+    BookTopNavigationComponent,
+    BookDashboardComponent,
+    IsbnPipe
   ],
   exports: [
     BookGridComponent,
