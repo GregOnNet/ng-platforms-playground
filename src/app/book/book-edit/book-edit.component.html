@@ -1,11 +1,27 @@
 <div class="container">
   <h2>{{ book.title }}</h2>
-  <form class="compact">
+  <form [formGroup]="editForm" class="compact" >
     <section class="form-block">
       <label>Details</label>
       <div class="form-group">
         <label>ISBN</label>
-        <span>{{ book.isbn | isbn }}</span>
+        <label
+          [class.invalid]="editForm.controls.isbn.invalid && (editForm.controls.isbn.dirty || editForm.controls.isbn.touched)"
+          class="tooltip tooltip-validation tooltip-top-left tooltip-md">
+          <input
+            formControlName="isbn"
+            type="text"
+            class="form-control">
+          <span class="tooltip-content">
+            <span [hidden]="!editForm.controls.isbn.errors || !editForm.controls.isbn.errors.required">
+              Bitte geben Sie eine gültige ISBN ein.
+            </span>
+            <span [hidden]="!editForm.controls.isbn.errors || !editForm.controls.isbn.errors.isbn">
+              Die ISBN muss 10 Zeichen lang sein.
+            </span>
+          </span>
+        </label>
+
       </div>
       <div class="form-group">
         <label>Autoren</label>
@@ -23,11 +39,12 @@
         <label>Beschreibung</label>
         <p>{{ book.description }}</p>
       </div>
-      <a
-        routerLink="['book', isbn, 'edit']"
-        class="btn btn-default">
-        Bearbeiten
-      </a>
+      <button
+        [disabled]="editForm.invalid"
+        type="submit"
+        class="btn btn-primary">
+        Speichern
+      </button>
     </section>
   </form>
 </div>

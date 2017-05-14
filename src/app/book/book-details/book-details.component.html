@@ -24,7 +24,7 @@
         <p>{{ book.description }}</p>
       </div>
       <a
-        routerLink="['book', isbn, 'edit']"
+        [routerLink]="['/book', book.isbn, 'edit']"
         class="btn btn-default">
         Bearbeiten
       </a>
