@@ -1,33 +1,31 @@
-<div class="book-card">
-  <a [routerLink]="['book', book.isbn]">
-    <div class="thumbnail">
-      <img
-        *ngIf="book.thumbnails?.length > 0; else dummy;"
-        [src]="book.thumbnails[0]"
-        alt="Buchcover">
-      <ng-template #dummy>
-        <img src="https://dummyimage.com/180x250/333/fff&text=Buch"
-                  alt="Buchcover">
-      </ng-template>
-    </div>
-    <p class="title">
-      {{ book.title }}
-    </p>
-    <div class="authors">
-      {{ book.authors }}
-    </div>
-    <div class="price">
-      {{ book.price | currency:'EUR':true }}
-    </div>
-    <div [hidden]="book.rating === 0" class="rating">
-      {{ book.rating }}
-    </div>
-  </a>
-  <div class="actions">
-    <tr-rating-button
-      [rating]="book.rating"
-      (increase)="book.rateUp()"
-      (decrease)="book.rateDown()">
-    </tr-rating-button>
+<a [routerLink]="['book', book.isbn]">
+  <div class="thumbnail">
+    <img
+      *ngIf="book.thumbnails?.length > 0; else dummy;"
+      [src]="book.thumbnails[0]"
+      alt="Buchcover">
+    <ng-template #dummy>
+      <img src="https://dummyimage.com/180x250/333/fff&text=Buch"
+                alt="Buchcover">
+    </ng-template>
   </div>
+  <p class="title">
+    {{ book.title }}
+  </p>
+  <div class="authors">
+    {{ book.authors }}
+  </div>
+  <div class="price">
+    {{ book.price | currency:'EUR':true }}
+  </div>
+  <div [hidden]="book.rating === 0" class="rating">
+    {{ book.rating }}
+  </div>
+</a>
+<div class="actions">
+  <tr-rating-button
+    [rating]="book.rating"
+    (increase)="book.rateUp()"
+    (decrease)="book.rateDown()">
+  </tr-rating-button>
 </div>

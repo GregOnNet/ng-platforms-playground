@@ -6,4 +6,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './book-list-element.component.html',
   styleUrls: ['./book-list-element.component.sass']
 })
-export class ListEntryComponent extends BookGridElementComponent { }
+export class ListElementComponent extends BookGridElementComponent { }

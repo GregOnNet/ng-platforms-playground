@@ -11,7 +11,7 @@ import { UtilitiesModule } from './../utilities/utilities.module';
 import { BookGridComponent } from './book-grid/book-grid.component';
 import { BookGridElementComponent } from './book-grid-element/book-grid-element.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { ListEntryComponent } from './book-list-element/book-list-element.component';
+import { ListElementComponent } from './book-list-element/book-list-element.component';
 import { ViewToggleComponent } from './book-view-toggle/book-view-toggle.component';
 import { RatingButtonComponent } from './rating-button/rating-button.component';
 import { BookAddFormComponent } from './book-add-form/book-add-form.component';
@@ -39,7 +39,7 @@ import { BookEditComponent } from './book-edit/book-edit.component';
     BookGridComponent,
     BookGridElementComponent,
     BookListComponent,
-    ListEntryComponent,
+    ListElementComponent,
     ViewToggleComponent,
     RatingButtonComponent,
     BookAddFormComponent,
