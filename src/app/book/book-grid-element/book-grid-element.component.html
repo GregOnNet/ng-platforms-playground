@@ -1,5 +1,5 @@
 <div class="book-card">
-  <a href="">
+  <a [routerLink]="['book', book.isbn]">
     <div class="thumbnail">
       <img
         *ngIf="book.thumbnails?.length > 0; else dummy;"
