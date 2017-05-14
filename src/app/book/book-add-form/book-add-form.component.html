@@ -3,6 +3,27 @@
     Neues Buch hinzufügen
   </section>
   <div class="form-group">
+    <label for="book-add-title">ISBN</label>
+    <label
+      [class.invalid]="isbn.invalid && (isbn.dirty || isbn.touched)"
+      for="book-add-isbn"
+      class="tooltip tooltip-validation tooltip-top-left tooltip-md"
+      aria-haspopup="true"
+      role="tooltip">
+      <input
+        [(ngModel)]="book.isbn"
+        required
+        type="text"
+        id="book-add-isbn"
+        name="isbn"
+        class="form-control"
+        #isbn="ngModel">
+      <span class="tooltip-content">
+        Bitte geben Sie eine gültige ISBN ein (max. 10 Ziffern).
+      </span>
+    </label>
+  </div>
+  <div class="form-group">
     <label for="book-add-title">Titel</label>
     <label
       [class.invalid]="title.invalid && (title.dirty || title.touched)"

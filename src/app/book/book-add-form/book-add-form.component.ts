@@ -11,7 +11,7 @@ import { Book } from '../models/book';
 export class BookAddFormComponent {
   @Output() create = new EventEmitter<Book>();
 
-  book = new Book('', [], 0);
+  book = new Book('', '', [], 0);
 
   createNewBook(form: NgForm) {
     this.create.emit(Object.assign({}, this.book));
