@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BookRoutingModule } from './book.routing.module';
@@ -20,11 +21,14 @@ import { BookDashboardComponent } from './book-dashboard/book-dashboard.componen
 import { BookService } from './core/book.service';
 import { GoogleBooksService } from './core/google-books.service';
 import { IsbnPipe } from './core/isbn-pipe/isbn.pipe';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
 
     BookRoutingModule,
@@ -40,7 +44,9 @@ import { IsbnPipe } from './core/isbn-pipe/isbn.pipe';
     BookAddFormComponent,
     BookTopNavigationComponent,
     BookDashboardComponent,
-    IsbnPipe
+    IsbnPipe,
+    BookDetailsComponent,
+    BookEditComponent
   ],
   exports: [
     BookGridComponent,

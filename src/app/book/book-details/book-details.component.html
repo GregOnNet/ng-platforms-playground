@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>{{ book.title }}</h2>
+  <form class="compact">
+    <section class="form-block">
+      <label>Details</label>
+      <div class="form-group">
+        <label>ISBN</label>
+        <span>{{ book.isbn | isbn }}</span>
+      </div>
+      <div class="form-group">
+        <label>Autoren</label>
+        <span>{{ book.authors }}</span>
+      </div>
+      <div class="form-group">
+        <label>Bewertung</label>
+        <span>{{ book.rating }}</span>
+      </div>
+      <div class="form-group">
+        <label>Preis</label>
+        <span>{{ book.price | currency:'EUR':true }}</span>
+      </div>
+      <div class="form-group">
+        <label>Beschreibung</label>
+        <p>{{ book.description }}</p>
+      </div>
+      <a
+        routerLink="['book', isbn, 'edit']"
+        class="btn btn-default">
+        Bearbeiten
+      </a>
+    </section>
+  </form>
+</div>
