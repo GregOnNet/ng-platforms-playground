@@ -1,3 +1,4 @@
+import { BookResolver } from './core/resolvers/book.resolver';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -55,6 +56,6 @@ import { BookEditComponent } from './book-edit/book-edit.component';
     BookAddFormComponent,
     BookTopNavigationComponent
   ],
-  providers: [BookService, GoogleBooksService]
+  providers: [BookService, GoogleBooksService, BookResolver]
 })
 export class BookModule { }

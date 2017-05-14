@@ -1,3 +1,4 @@
+import { BookResolver } from './core/resolvers/book.resolver';
 import { RouterModule, Route } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Route[] = [
   { path: '', component: BookDashboardComponent, pathMatch: 'full' },
-  { path: 'book/:isbn', component: BookDetailsComponent },
+  { path: 'book/:isbn', component: BookDetailsComponent, resolve: { book: BookResolver } },
 ];
 
 @NgModule({

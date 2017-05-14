@@ -12,15 +12,9 @@ import { Book } from '../models/book';
 export class BookDetailsComponent implements OnInit {
   book: Book;
 
-  constructor(
-    private route: ActivatedRoute,
-    private bookService: BookService
-  ) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route
-      .paramMap
-      .switchMap(params =>  this.bookService.getByIsbn(params.get('isbn')))
-      .subscribe(book =>  this.book = book);
+    this.book = this.route.snapshot.data['book'];
   }
 }
