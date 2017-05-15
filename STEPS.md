@@ -117,3 +117,10 @@
  ```html
  <form #bookForm="ngForm" (ngSubmit)="createNewBook(bookForm)">
  ```
+
+
+## Service refaktorisieren
+
+- BookService
+  - erst mit reiner Liste
+  - Dann mit `Observables`
