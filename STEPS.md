@@ -124,3 +124,53 @@
 - BookService
   - erst mit reiner Liste
   - Dann mit `Observables`
+
+## Suchkomponente mit RxJS
+
+- Top-Navigation
+  
+  ```html
+  <header class="header">
+    <div class="branding">
+      <a href="">
+        <span class="title">{{ title }}</span>
+      </a>
+    </div>
+    <!-- Platzhalter für innerHTML -->
+    <ng-content></ng-content>
+  </header>
+  ```
+
+- Search-Component
+
+  ```html
+  <form class="search">
+    <label>
+      <input
+        (input)="queryChange.emit(searchQuery.value)"
+        type="text"
+        #searchQuery
+        placeholder="Bücher suchen...">
+    </label>
+  </form>
+  <div class="search-results">
+    <div class="container">
+      <tr-book-grid
+        *ngIf="books$ | async as books; else searchResults;"
+        [books]="books">
+      </tr-book-grid>
+    </div>
+  </div>
+  ```
+  *Template*
+
+  ```ts
+  queryChange = new EventEmitter<string>();
+  /* ... */
+  this.queryChange
+    .debounceTime(500)
+    .distinctUntilChanged()
+    .filter(query => query && query.length > 0)
+    .subscribe(query => console.log(query));
+  ```
+  *Component*
