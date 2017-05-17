@@ -1,3 +1,4 @@
+import { BookEditGuard } from './core/guards/book-edit.guard';
 import { BookResolver } from './core/resolvers/book.resolver';
 import { RouterModule, Route } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
@@ -9,7 +10,12 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 const routes: Route[] = [
   { path: '', component: BookDashboardComponent, pathMatch: 'full' },
   { path: 'book/:isbn', component: BookDetailsComponent, resolve: { book: BookResolver } },
-  { path: 'book/:isbn/edit', component: BookEditComponent, resolve: { book: BookResolver } },
+  {
+    path: 'book/:isbn/edit',
+    component: BookEditComponent,
+    resolve: { book: BookResolver },
+    canActivate: [BookEditGuard]
+  }
 ];
 
 @NgModule({
@@ -18,6 +24,7 @@ const routes: Route[] = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [BookEditGuard]
 })
 export class BookRoutingModule { }

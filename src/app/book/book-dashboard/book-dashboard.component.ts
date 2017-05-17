@@ -5,6 +5,7 @@ import { Book } from '../models/book';
 import { ViewMode } from '../book-view-toggle/view-mode';
 
 import { BookService } from '../core/book.service';
+import { BookBus } from '../core/book.bus';
 
 @Component({
   selector: 'tr-book-dashboard',
@@ -16,7 +17,9 @@ export class BookDashboardComponent implements OnInit {
   isGridEnabled = true;
   books: Observable<Book[]>;
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private bookBus: BookBus) { }
 
   addBookToList(book: Book) {
     this.bookService.create(book);
@@ -31,5 +34,8 @@ export class BookDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.books = this.bookService.getAll();
+    this.bookBus.stream.subscribe(book =>
+      this.addBookToList(book)
+    );
   }
 }

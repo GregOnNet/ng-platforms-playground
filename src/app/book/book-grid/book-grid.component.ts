@@ -1,3 +1,4 @@
+import { BookBus } from './../core/book.bus';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,8 +10,7 @@ export class BookGridComponent implements OnInit {
 
   @Input() books;
 
-  constructor() {
-  }
+  constructor() {  }
 
   ngOnInit() {
   }
