@@ -15,6 +15,8 @@
 <!ELEMENT ex (#PCDATA)>
 ]>
 <translationbundle lang="de">
-  <translation id="AppComponent:header">Bücher</translation>
-  <translation id="Appcomponent:welcome-message">Willkommen!</translation>
+  <translation id="BookAddForm:isbn:label">ISBN-DE</translation>
+  <translation id="BookAddForm:isbn:input:placeholder">ISBN eingeben...</translation>
+  <translation id="BookAddForm:isbn:validation">Die ISBN darf nicht länger als 10 Zeichen sein.</translation>
+  <translation id="BookAddForm:title:validation" desc="Missing title">Bitte geben Sie den Titel des Buchs an.</translation>
 </translationbundle>

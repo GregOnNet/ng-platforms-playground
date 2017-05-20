@@ -3,7 +3,9 @@
     Neues Buch hinzufügen
   </section>
   <div class="form-group">
-    <label for="book-add-title">ISBN</label>
+    <label
+      for="book-add-title"
+      i18n="@@BookAddForm:isbn:label">ISBN</label>
     <label
       [class.invalid]="isbn.invalid && (isbn.dirty || isbn.touched)"
       for="book-add-isbn"
@@ -13,13 +15,17 @@
       <input
         [(ngModel)]="book.isbn"
         required
+        placeholder="ISBN eingeben..."
+        i18n-placeholder="@@BookAddForm:isbn:input:placeholder"
         type="text"
         id="book-add-isbn"
         name="isbn"
         class="form-control"
         #isbn="ngModel">
       <span class="tooltip-content">
-        Bitte geben Sie eine gültige ISBN ein (max. 10 Ziffern).
+        <ng-container i18n="@@BookAddForm:isbn:validation">
+          Bitte geben Sie eine gültige ISBN ein (max. 10 Ziffern).
+        </ng-container>
       </span>
     </label>
   </div>
@@ -40,7 +46,9 @@
         class="form-control"
         #title="ngModel">
       <span class="tooltip-content">
+        <!--i18n:Missing title@@BookAddForm:title:validation -->
         Bitte geben Sie einen Titel ein.
+        <!-- /i18n -->
       </span>
     </label>
   </div>
