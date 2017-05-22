@@ -8,7 +8,7 @@ set -x
 ./node_modules/.bin/ng build --prod
 
 # [Workaround] Copy template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
-cp ./src/**/*.{html,sass} .
+cp ./src/**/*.{html,css,sass} .
 
 # # Generate a new index.html with an app shell
 ./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts \
@@ -24,7 +24,7 @@ cp node_modules/@angular/service-worker/bundles/worker-basic.min.js dist/
                                     --out dist/ngsw-manifest.json
 
 # [Workaround] Remove template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
-rm "./"*.{html,sass}
+rm "./"*.{html,css,sass}
 
 # Serve
 ./node_modules/.bin/http-server dist/

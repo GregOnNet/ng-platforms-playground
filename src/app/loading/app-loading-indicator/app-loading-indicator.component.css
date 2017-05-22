@@ -1,0 +1,13 @@
+.spinner {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 40%;
+}
+
+.spinner-text {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 8px;
+}
