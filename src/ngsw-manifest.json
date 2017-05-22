@@ -4,13 +4,13 @@
       {
         "name": "buecher",
         "urls": {
-          "": {
-            "match": ""
+          "https://www.googleapis.com": {
+            "match": "prefix"
           }
         },
         "cache": {
           "optimizeFor": "performance",
-          "maxAgeMs":36000,
+          "maxAgeMs": 3600000,
           "maxEntries": 20,
           "strategy": "lru"
         }

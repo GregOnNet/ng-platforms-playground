@@ -1,0 +1,1 @@
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[null,null,null,null]}],"rateUp":[{"__symbolic":"method"}],"rateDown":[{"__symbolic":"method"}]}}}],"symbols":[{"__symbol":0,"name":"Book","filePath":"C:/workbench/trainings/angular/ng-pwa/src/app/book/models/book.d.ts"}]}

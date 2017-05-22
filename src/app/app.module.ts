@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ServiceWorkerModule, NgServiceWorker } from '@angular/service-worker';
+// import { ServiceWorkerModule, NgServiceWorker } from '@angular/service-worker';
 
 import { LoadingModule } from './loading/loading.module';
 import { NavigationModule } from './navigation/navigation.module';
@@ -20,7 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule.withServerTransition({ appId: 'buecher' }),
     NavigationModule,
-    ServiceWorkerModule,
+    // ServiceWorkerModule,
     BookModule,
     LoadingModule,
     AppRoutingModule
@@ -29,13 +29,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private sw: NgServiceWorker) {
-    this.sw
-      .registerForPush({ applicationServerKey: '9423zhroefz9brzp938z 3' })
-      .subscribe(sub => console.log(sub));
+  // constructor(private sw: NgServiceWorker) {
+  //   this.sw
+  //     .registerForPush({ applicationServerKey: '9423zhroefz9brzp938z 3' })
+  //     .subscribe(sub => console.log(sub));
 
-    this.sw
-      .push
-      .subscribe(notification => console.info(notification));
-  }
+  //   this.sw
+  //     .push
+  //     .subscribe(notification => console.info(notification));
+  // }
 }
