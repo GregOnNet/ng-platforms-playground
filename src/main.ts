@@ -12,6 +12,10 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .then(() => registerWorker('/worker-basic.min.js'));
 
+/**
+ * Loads a service worker if the browser is supporting it
+ * @param {string} workerScript path to the script file implementing the service worker
+ */
 function registerWorker(workerScript: string) {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register(workerScript);
