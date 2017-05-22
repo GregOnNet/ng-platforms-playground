@@ -1,36 +1,30 @@
-<header class="header">
-  <div class="branding">
-    <a href="">
-      <span class="title">Bücher</span>
-    </a>
-  </div>
-  <form class="search">
-    <label>
-      <input
-        (input)="queryChange.emit(searchQuery.value)"
-        type="text"
-        #searchQuery
-        placeholder="Bücher suchen...">
-    </label>
-  </form>
-  <div [hidden]="!isResultViewEnabled" class="search-results">
-    <div class="container">
-      <button
-        (click)="isResultViewEnabled = false"
-        class="btn btn-link btn-sm">Schließen
-      </button>
-      <div
-        *ngIf="searchError"
-        class="alert alert-danger">
-        <div class="alert-item">
-          <span class="alert-text">{{ searchError }}</span>
-        </div>
+<form class="search">
+  <label>
+    <input
+      (input)="queryChange.emit(searchQuery.value)"
+      type="text"
+      #searchQuery
+      placeholder="Bücher suchen...">
+  </label>
+</form>
+<div [hidden]="!isResultViewEnabled" class="search-results">
+  <div class="container">
+    <button
+      (click)="isResultViewEnabled = false"
+      class="btn btn-link btn-sm">Schließen
+    </button>
+    <div
+      *ngIf="searchError"
+      class="alert alert-danger">
+      <div class="alert-item">
+        <span class="alert-text">{{ searchError }}</span>
       </div>
-      <tr-book-grid
-        *ngIf="books$ | async as books; else searchResults;"
-        [books]="books">
-      </tr-book-grid>
-      <ng-template #searchResults><div class="spinner"></div></ng-template>
     </div>
+    <tr-book-grid
+      *ngIf="books$ | async as books; else searchResults;"
+      [books]="books">
+    </tr-book-grid>
+    <ng-template #searchResults><div class="spinner"></div></ng-template>
   </div>
-</header>
+</div>
+
