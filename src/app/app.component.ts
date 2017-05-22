@@ -8,8 +8,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'tr-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
