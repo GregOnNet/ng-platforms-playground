@@ -5,7 +5,7 @@ shopt -s globstar
 set -x
 
 # Production build
-ng build --prod
+./node_modules/.bin/ng build --prod
 
 # [Workaround] Copy template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
 cp ./src/**/*.{html,sass} .
