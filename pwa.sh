@@ -19,12 +19,12 @@ cp ./src/**/*.{html,sass} .
 # Copy prebuilt worker in oure site
 cp node_modules/@angular/service-worker/bundles/worker-basic.min.js dist/
 
-# [Workaround] Remove template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
-rm "./"*.{html,sass}
-
 # Copy service worker manifest (til now without tooling)
 ./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts \
                                     --out dist/ngsw-manifest.json
 
+# [Workaround] Remove template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
+rm "./"*.{html,sass}
+
 # Serve
-http-server dist/
+./node_modules/.bin/http-server dist/
