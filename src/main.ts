@@ -10,7 +10,7 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .then(() => registerWorker('/worker-basic.min.js'));
+  .then(() => registerWorker('worker-basic.min.js'));
 
 /**
  * Loads a service worker if the browser is supporting it
@@ -18,6 +18,8 @@ platformBrowserDynamic()
  */
 function registerWorker(workerScript: string) {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(workerScript);
+    navigator.serviceWorker
+      .register(workerScript, {scope: './'})
+      .catch(err => console.log('Error (workerScript):', err));
   }
 }
