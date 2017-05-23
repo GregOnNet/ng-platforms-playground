@@ -1,10 +1,7 @@
 import 'reflect-metadata';
-// was ist das?
 import 'zone.js/dist/zone-node';
-// renderModuleFactory?
 import { platformServer, renderModuleFactory } from '@angular/platform-server';
 import { enableProdMode } from '@angular/core';
-// was ist das?
 import { AppServerModuleNgFactory } from '../dist-server/ngfactory/src/app/app.server.module.ngfactory';
 
 import * as express from 'express';
@@ -18,7 +15,7 @@ const app = express();
 
 const template = readFileSync(join(__dirname, '..', 'dist-server', 'index.html')).toString();
 
-// app.engine?
+// http://expressjs.com/de/4x/api.html#app.engine
 app.engine('html', (_, options, callback) => {
   const opts = { document: template, url: options.req.url };
 
@@ -26,11 +23,10 @@ app.engine('html', (_, options, callback) => {
     .then(html => callback(null, html));
 });
 
-// ?
+// http://expressjs.com/de/guide/using-template-engines.html
 app.set('view engine', 'html');
 app.set('views', 'src');
 
-// ?
 app.get('*.*', express.static(join(__dirname, '..', 'dist-server')));
 app.get('*', (req, res) => res.render('index', { req }));
 
