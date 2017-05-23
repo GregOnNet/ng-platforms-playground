@@ -1,6 +1,4 @@
 #!/bin/bash
-PATH=$PATH:$(npm bin)
-
 shopt -s globstar
 set -x
 
