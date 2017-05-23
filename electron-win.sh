@@ -5,4 +5,7 @@ set -x
 
 cp ./src/electron/* dist-electron
 
-./node_modules/.bin/electron-packager dist-electron books --platform=win32 --arch=x64
+./node_modules/.bin/electron-packager dist-electron books \
+                                      --platform=win32 \
+                                      --arch=x64 \
+                                      --out build
