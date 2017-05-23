@@ -8,3 +8,6 @@ set -x
 cp ./src/electron/* dist-electron
 
 ./node_modules/.bin/electron dist-electron
+
+# Have a look at changes in
+# - electron/
