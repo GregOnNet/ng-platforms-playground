@@ -1,7 +1,5 @@
 #!/bin/bash
-shopt -s globstar
 set -x
-
 
 ./node_modules/.bin/ng build --outputPath ./dist-electron --base-href .
 
