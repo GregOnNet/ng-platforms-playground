@@ -3,7 +3,7 @@ shopt -s globstar
 set -x
 
 # Production Build
-./node_modules/.bin/ng build --outputPath ./dist-server
+./node_modules/.bin/ng build
 
 # AoT Build
 ./node_modules/.bin/ngc
