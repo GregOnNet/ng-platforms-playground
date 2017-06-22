@@ -2,6 +2,9 @@
 shopt -s globstar
 set -x
 
+## clean build
+rm -rf dist/
+
 # Production Build
 ./node_modules/.bin/ng build
 

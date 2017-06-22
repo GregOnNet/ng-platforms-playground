@@ -1,6 +1,9 @@
 #!/bin/bash
 set -x
 
+## clean build
+rm -rf dist/
+
 ./node_modules/.bin/ng build --outputPath ./dist-electron --base-href .
 
 cp ./src/electron/* dist-electron
