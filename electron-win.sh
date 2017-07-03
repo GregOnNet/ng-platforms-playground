@@ -2,7 +2,7 @@
 set -x
 
 ## clean build
-rm -rf dist/
+rm -rf dist/ build/
 
 ./node_modules/.bin/ng build --outputPath ./dist-electron --base-href .
 
