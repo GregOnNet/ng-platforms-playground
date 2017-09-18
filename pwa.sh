@@ -11,11 +11,13 @@ rm -rf dist/
 # [Workaround] Copy template and styles to root folder (see: https://github.com/alxhub/io17/issues/8)
 cp ./src/**/*.{html,css,sass} .
 
-# Generate a new index.html with an app shell
+# Prepare App-Shell here
+# Generate a new index.html with an simple app shell
+# Generate a new index.html with an app shell having a loading spinner
 ./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts \
-                                  --url /loading \
-                                  --insert src/app/loading/loading.module.ts \
-                                  --out dist/index.html
+                         --url /loading \
+                         --insert src/app/loading/loading.module.ts \
+                         --out dist/index.html
 
 # Copy prebuilt worker in oure site
 cp node_modules/@angular/service-worker/bundles/worker-basic.min.js dist/

@@ -3,7 +3,7 @@ shopt -s globstar
 set -x
 
 ## clean build
-rm -rf dist/
+rm -rf dist-electron/
 
 ./node_modules/.bin/ng build --outputPath ./dist-electron --base-href .
 
